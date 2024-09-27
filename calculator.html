@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <script>
+
+        function validate(num1, num2) {
+            if (num1.match(/^\d{1,5}$/) && num2.match(/^\d{1,5}$/)) {
+                return true;
+            }
+            else {
+                alert("Please enter valid numbers up to 5 digits.");
+                return false;
+            }
+        }
+
+
+        function add() {
+            let num1 = document.getElementById("first").value;
+            let num2 = document.getElementById("second").value;
+            if (validate(num1, num2))
+                document.getElementById("result").value = parseInt(num1) + parseInt(num2);
+        }
+
+        function sub() {
+            let num1 = document.getElementById("first").value;
+            let num2 = document.getElementById("second").value;
+            if (validate(num1, num2))
+                document.getElementById("result").value  = parseInt(num1) - parseInt(num2);
+        }
+
+        function mul() {
+            let num1 = document.getElementById("first").value;
+            let num2 = document.getElementById("second").value;
+            if (validate(num1, num2))
+                document.getElementById("result").value = parseInt(num1) * parseInt(num2);
+        }
+
+        function div() {
+            let num1 = document.getElementById("first").value;
+            let num2 = document.getElementById("second").value;
+
+            if (parseInt(document.getElementById("second").value) != 0) {
+                if (validate(num1, num2))
+                    document.getElementById("result").value  = parseInt(num1) / parseInt(num2);
+            }
+
+            else
+                alert("Cannot divide by zero");
+        }
+    </script>
+
+    <title>Calculator</title>
+</head>
+
+<body align="center">
+
+    <h1>Calculator</h1>
+
+    <h2>Enter two numbers: </h2>
+
+    <form>
+        <table align="center">
+            <tr>
+                <td>
+                    First number:
+                </td>
+                <td>
+                    <input type="text" class="textbox" name="first" id="first" pattern="^\d{1,5}$" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Second number:
+                </td>
+                <td>
+                    <input type="text" class="textbox" name="second" id="second" pattern="^\d{1,5}$" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Result:
+                </td>
+                <td>
+                    <input type="text" name="result" id="result" class="textbox" readonly>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <input type="button" id="button" value="Add" onclick="add();">
+        <input type="button" id="button" value="Substract" onclick="sub();">
+        <input type="button" id="button" value="Multiply" onclick="mul();">
+        <input type="button" id="button" value="Divide" onclick="div();">
+        <br><br>
+        <input type="reset" id="button" value="Reset">
+
+    </form>
+</body>
+
+</html>
